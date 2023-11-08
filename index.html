@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>NATHANAEL<br>BRAY</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT ME</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Nathanael Bray</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+
+  <!-- Photo links -->
+  <!-- ... existing content ... -->
+
+<!-- Additional row for photos -->
+<div class="w3-row">
+  <div class="w3-third">
+    <a href="https://vimeo.com/nathanaelbray" target="_blank">
+      <img src="path_to_your_first_photo.jpg" style="width:100%" alt="Link to Vimeo">
+    </a>
+  </div>
+  <div class="w3-third">
+    <a href="https://www.flickr.com/photos/nathanaelbray/" target="_blank">
+      <img src="path_to_your_second_photo.jpg" style="width:100%" alt="Link to Flickr">
+    </a>
+  </div>
+  <div class="w3-third">
+    <a href="https://bandcamp.com/y0shima" target="_blank">
+      <img src="path_to_your_third_photo.jpg" style="width:100%" alt="Link to Bandcamp">
+    </a>
+  </div>
+</div>
+
+<!-- ... remaining content ... -->
+
+  <!-- Video grid -->
+<div class="w3-row">
+  <!-- Page 1 content -->
+  <div class="video-page" data-page="1">
+    <div class="w3-half">
+      <!-- First video on page 1 -->
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/7i8mwdogM0g?si=qfwcZ8m-d1XAiLoK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="w3-half">
+      <!-- Second video on page 1 -->
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Page 2 content -->
+  <div class="video-page" data-page="2" style="display: none;">
+    <div class="w3-half">
+      <!-- First video on page 2 -->
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="w3-half">
+      <!-- Second video on page 2 -->
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Add more pages as needed -->
+</div>
+
+  <!-- Pagination -->
+  <div class="w3-bar">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(1)">«</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(1)">1</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(2)">2</a>
+  <!-- More links as needed for additional pages -->
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(2)">»</a>
+</div>
+
+  <!-- About section -->
+  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
+    <h4><b>About Me</b></h4>
+    <img src="/w3images/avatar_hat.jpg" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
+    <div class="w3-content w3-justify" style="max-width:600px">
+      <h4>My Name</h4>
+      <p>Nathanael Bray is an aspiring writer and filmmaker. Nathanael was born and raised along the coast of Maine where he learned the craft of sail and wooden boatbuilding from a very young age, both from his father and many other skilled masters. At the young age of 19, Nathanael became a licensed captain and has sailed extensively, both as captain and crew, doing yacht deliveries, running charters, and teaching both seamanship and boatbuilding at the WoodenBoat School and privately. After over a decade spent in the world of boats and sailing, Nathanael moved west to California to begin his second career in the world of technology, working first as a contractor, then as a Network Analyst for several Silicon Valley Corporations before successfully running his own IT services company for a few years. After realizing he wasn’t living his passion and getting in touch with his love for art and cinema, Nathanael is now pursuing his interest in film at Howard Community College as a transfer student planning to attend UMBC for a BFA in Cinematic Arts.
+      </p>
+      </div>
+
+  <a href="https://drive.google.com/file/d/1Dwf3_eH_C5BOEgCn_3cSZdvdFv0uSv45/view?usp=share_link" class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom" download="Your_Resume_Name.pdf">Download Resume</a>
+
+  </div>
+
+  <!-- Contact section -->
+<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
+  <div class="w3-content" style="max-width:600px">
+    <h4 class="w3-center"><b>Contact Me</b></h4>
+    <p>Available for freelance work!</p>
+
+    <!-- Email and Phone Links -->
+    <p>Email: <a href="mailto:nat@evolvingthought.com">nat@evolvingthought.com</a></p>
+    <p>Phone: <a href="tel:+14433456685">+1 (443) 345-6685</a></p>
+
+    <!-- The rest of your contact form here -->
+    <!-- ... -->
+
+  </div>
+</div>
+
+
+<!-- End page content -->
+</div>
+
+<script>
+  // Change Pages
+  function changePage(newPage) {
+  // Hide all video pages
+  var pages = document.getElementsByClassName('video-page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].style.display = 'none';
+  }
+
+  // Show the new page
+  var activePage = document.querySelector('.video-page[data-page="' + newPage + '"]');
+  if (activePage) {
+    activePage.style.display = 'block';
+  }
+}
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Video Gallery
+function onClick(element) {
+  var modal = document.getElementById("modal01");
+  var video = document.createElement("video");
+  video.setAttribute("class", "w3-image");
+  video.setAttribute("controls", "controls");
+
+  var sourceMP4 = document.createElement("source");
+  sourceMP4.type = "video/mp4";
+  sourceMP4.src = element.src;
+  video.appendChild(sourceMP4);
+
+  modal.innerHTML = "";
+  modal.appendChild(video);
+
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+  video.play();
+}
+
+</script>
+
+
+</body>
+</html>

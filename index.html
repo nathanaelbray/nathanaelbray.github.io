@@ -1,188 +1,259 @@
-<!DOCTYPE html>
-<html lang="en">
+-<!DOCTYPE html>
+<html>
 <head>
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
-.w3-third img:hover{opacity: 1}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url("https://live.staticflickr.com/65535/53346018614_695068d480_o.jpg");
+  min-height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("https://live.staticflickr.com/65535/53345695376_1d14d7d48e_o.jpg");
+  min-height: 400px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("https://live.staticflickr.com/65535/53344814522_0e444b4157_o.jpg");
+  min-height: 400px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
 </style>
 </head>
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<body>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
-  <h3 class="w3-padding-64 w3-center"><b>NATHANAEL<br>BRAY</b></h3>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
-  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">PORTFOLIO</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT NAT</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
-  <span class="w3-left w3-padding">Nathanael Bray</span>
-  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
-
-  <!-- Push down content on small screens -->
-  <div class="w3-hide-large" style="margin-top:83px"></div>
-
-  <!-- Photo links -->
-  <!-- ... existing content ... -->
-
-<!-- Additional row for photos -->
-<div class="w3-row">
-  <div class="w3-third">
-    <a href="https://vimeo.com/nathanaelbray" target="_blank">
-      <img src="vimeo.png" style="width:100%" alt="Link to Vimeo">
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
     </a>
   </div>
-  <div class="w3-third">
-    <a href="https://www.flickr.com/photos/nathanaelbray/" target="_blank">
-      <img src="flickr.png" style="width:100%" alt="Link to Flickr">
-    </a>
-  </div>
-  <div class="w3-third">
-    <a href="https://bandcamp.com/y0shima" target="_blank">
-      <img src="bandcamp.png" style="width:100%" alt="Link to Bandcamp">
-    </a>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
   </div>
 </div>
 
-<!-- ... remaining content ... -->
-
-  <!-- Video grid -->
-<div class="w3-row">
-  <!-- Page 1 content -->
-  <div class="video-page" data-page="1">
-    <div class="w3-half">
-      <!-- First video on page 1 -->
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/7i8mwdogM0g?si=qfwcZ8m-d1XAiLoK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="w3-half">
-      <!-- Second video on page 1 -->
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Collected Works: <span class="w3-hide-small">Nathanael</span> Bray</span>
   </div>
-
-  <!-- Page 2 content -->
-  <div class="video-page" data-page="2" style="display: none;">
-    <div class="w3-half">
-      <!-- First video on page 2 -->
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="w3-half">
-      <!-- Second video on page 2 -->
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/ZaH5OPJDXCI?si=3QWMV_fgh3X2UOkX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <!-- Add more pages as needed -->
 </div>
 
-  <!-- Pagination -->
-  <div class="w3-bar">
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(1)">«</a>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(1)">1</a>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(2)">2</a>
-  <!-- More links as needed for additional pages -->
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-hover-black" onclick="changePage(2)">»</a>
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center">ABOUT ME</h3>
+  <p class="w3-center"><em>Youthfulness is not determined by age. <br>It is determined by one's life force.<br> One who possesses hope is forever young. <br>One who continually advances is forever beautiful. <br>- Daisaku Ikeda</em></p>
+  <p>Welcome to the student portfolio website for Nathanael Bray. From here you can access Nathanael's work in film, photography, 
+    sound design, audio recordings, drawings and prints.</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
+      <img src="https://live.staticflickr.com/65535/53345695371_325f3c1cd4_o.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large">
+      <p>Nathanael Bray is an aspiring writer and filmmaker. Nathanael was born and raised along the coast of Maine where he learned 
+        the craft of sail and wooden boatbuilding from a very young age, both from his father and many other skilled masters. 
+        At the young age of 19, Nathanael became a licensed captain and has sailed extensively, both as captain and crew, 
+        doing yacht deliveries, running charters, and teaching both seamanship and boatbuilding at the WoodenBoat School and privately. 
+        After over a decade spent in the world of boats and sailing, Nathanael moved west to California to begin his 
+        second career in the world of technology, working first as a contractor, then as a Network Analyst for several Silicon Valley Corporations 
+        before successfully running his own IT services company for a few years. After realizing he wasn’t living his passion 
+        and getting in touch with his love for art and cinema, Nathanael is now pursuing his interest in film at Howard Community College 
+        as a transfer student planning to attend UMBC for a BFA in Cinematic Arts.</p>
+    </div>
+  </div>
+<div class="w3-row w3-center w3-dark-grey w3-padding-16">
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">10 years</span><br>
+    Wooden Boatbuilder
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">6 years</span><br>
+    Network Analyst
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">4 years+</span><br>
+    Entrepreneur
+  </div>
+  <div class="w3-quarter w3-section">
+    <span class="w3-xlarge">2 years</span><br>
+    Film Student
+  </div>
+</div>
+<p class="w3-large w3-center w3-padding-16"></p>
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+  </div>
 </div>
 
-  <!-- About section -->
-  <div class="w3-container w3-dark-grey w3-center w3-text-light-grey w3-padding-32" id="about">
-    <h4><b>About Me</b></h4>
-    <img src="nathanaelbrayprofile.jpg" alt="Me" class="w3-image w3-padding-32" width="600" height="650">
-    <div class="w3-content w3-justify" style="max-width:600px">
-      <h4>Nathanael Bray</h4>
-      <p>Nathanael Bray is an aspiring writer and filmmaker. Nathanael was born and raised along the coast of Maine where he learned the craft of sail and wooden boatbuilding from a very young age, both from his father and many other skilled masters. At the young age of 19, Nathanael became a licensed captain and has sailed extensively, both as captain and crew, doing yacht deliveries, running charters, and teaching both seamanship and boatbuilding at the WoodenBoat School and privately. After over a decade spent in the world of boats and sailing, Nathanael moved west to California to begin his second career in the world of technology, working first as a contractor, then as a Network Analyst for several Silicon Valley Corporations before successfully running his own IT services company for a few years. After realizing he wasn’t living his passion and getting in touch with his love for art and cinema, Nathanael is now pursuing his interest in film at Howard Community College as a transfer student planning to attend UMBC for a BFA in Cinematic Arts.
-      </p>
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center">COLLECTED WORKS</h3>
+  <p class="w3-center"><em>Here are links to my latest artistic pursuits in film, photography, sound, drawing and printmaking,</em></p><br>
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+  <div class="w3-row-padding w3-center">
+    <div class="w3-col m3">
+  <a href="https://nathanaelbray.client-gallery.com/gallery/portfolio">
+  <img src="https://live.staticflickr.com/65535/53344934702_74bc73b461_o.jpg" style="width:100%" alt="Audio">
+</a>
+Photography
+    </div>
+
+    <div class="w3-col m3">
+      <a href="https://vimeo.com/showcase/10801001">
+  <img src="https://live.staticflickr.com/65535/53346046418_e8510602ce_o.jpg" style="width:100%" alt="Audio">
+</a>
+Video & Film
+    </div>
+
+    <div class="w3-col m3">
+      <a href="https://freesound.org/people/NathanaelBray/">
+  <img src="https://live.staticflickr.com/65535/53344934717_e88c79cd62_o.jpg" style="width:100%" alt="Audio">
+</a>
+Audio & Sound
+    </div>
+
+    <div class="w3-col m3">
+      <a href="https://www.deviantart.com/y0shima">
+  <img src="https://live.staticflickr.com/65535/53344934722_c9841f0751_o.jpg" style="width:100%" alt="Audio">
+</a>
+Drawing/Printmaking
+    </div>
+  </div>
+    <div style="text-align: center; margin-top: 64px;">
+  <a href="https://drive.google.com/file/d/1Dwf3_eH_C5BOEgCn_3cSZdvdFv0uSv45/view?usp=share_link" class="w3-button w3-padding-large w3-light-grey">MY RESUME</a>
+</div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">HOW TO REACH ME</h3>
+  <p class="w3-center"><em>Please contact me with any questions or suggestions!</em></p>
+
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+      <img src="https://live.staticflickr.com/65535/53346143055_a56db041ce_o.jpg" class="w3-image w3-round" style="width:100%">
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Maryland, USA<br>
+        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +1 (443)345-6685<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: nat@evolvingthought.com<br>
       </div>
+    </div>
+    </div>
+   
+    
 
-  <a href="https://drive.google.com/file/d/1Dwf3_eH_C5BOEgCn_3cSZdvdFv0uSv45/view?usp=share_link" class="w3-button w3-light-grey w3-padding-large w3-margin-top w3-margin-bottom" download="Your_Resume_Name.pdf">Download Resume</a>
-
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <a href="https://www.instagram.com/y0shima" class="w3-hover-opacity"><i class="fa fa-instagram"></i></a>
+    <a href="https://twitter.com/yourprofile" class="w3-hover-opacity"><i class="fa fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/nathanaelbray" class="w3-hover-opacity"><i class="fa fa-linkedin"></i></a>
   </div>
-
-  <!-- Contact section -->
-<div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
-  <div class="w3-content" style="max-width:600px">
-    <h4 class="w3-center"><b>Contact Me</b></h4>
-    <p>Available for freelance work!</p>
-
-    <!-- Email and Phone Links -->
-    <p>Email: <a href="mailto:nat@evolvingthought.com">nat@evolvingthought.com</a></p>
-    <p>Phone: <a href="tel:+14433456685">+1 (443) 345-6685</a></p>
-
-    <!-- The rest of your contact form here -->
-    <!-- ... -->
-
-  </div>
-</div>
-
-
-<!-- End page content -->
-</div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
 
 <script>
-  // Change Pages
-  function changePage(newPage) {
-  // Hide all video pages
-  var pages = document.getElementsByClassName('video-page');
-  for (var i = 0; i < pages.length; i++) {
-    pages[i].style.display = 'none';
-  }
-
-  // Show the new page
-  var activePage = document.querySelector('.video-page[data-page="' + newPage + '"]');
-  if (activePage) {
-    activePage.style.display = 'block';
-  }
-}
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Video Gallery
+// Modal Image Gallery
 function onClick(element) {
-  var modal = document.getElementById("modal01");
-  var video = document.createElement("video");
-  video.setAttribute("class", "w3-image");
-  video.setAttribute("controls", "controls");
-
-  var sourceMP4 = document.createElement("source");
-  sourceMP4.type = "video/mp4";
-  sourceMP4.src = element.src;
-  video.appendChild(sourceMP4);
-
-  modal.innerHTML = "";
-  modal.appendChild(video);
-
+  document.getElementById("img01").src = element.src;
   document.getElementById("modal01").style.display = "block";
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
-  video.play();
 }
 
-</script>
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
 
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
 
 </body>
 </html>
